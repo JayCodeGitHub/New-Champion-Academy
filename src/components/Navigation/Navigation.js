@@ -306,7 +306,7 @@ function Navigation() {
                 <div className="mt-6 bg-gray-700">
                   <nav className="grid gap-y-8 ">
                     <Link
-                      to="/o-nas"
+                      to="/O-nas"
                       className="-m-3 p-3 flex items-center rounded-md text-white hover:bg-gray-500 hover:text-primary"
                       activeClassName="text-primary"
                     >
