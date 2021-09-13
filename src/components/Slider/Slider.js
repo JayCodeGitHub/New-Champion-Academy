@@ -60,11 +60,11 @@ function Slider({
                 src={photoone}
                 alt={titleone}
               />
-              <div className="absolute top-0 text-white lg:w-1/3 w-full h-full lg:pt-40 pt-32 lg:ml-32 px-16 lg:px-0">
+              <div className="absolute top-0 text-white lg:w-1/3 w-full h-full lg:pt-40 pt-28 lg:ml-32 px-16 lg:px-0">
                 <h1 className="w-full text-5xl py-8 pl-4 text-primary">
                   {titleone}
                 </h1>
-                <h2 className="w-full text-xl py-8 text-gray-300">
+                <h2 className="w-full lg:text-xl text-lg py-8 text-gray-300">
                   {descriptionone}
                 </h2>
                 <Link to={hrefone}>
@@ -85,11 +85,11 @@ function Slider({
                 src={phototwo}
                 alt={titletwo}
               />
-              <div className="absolute top-0 text-white lg:w-1/3 w-full h-full lg:pt-40 pt-32 lg:ml-32 px-16 lg:px-0">
+              <div className="absolute top-0 text-white lg:w-1/3 w-full h-full lg:pt-40 pt-28 lg:ml-32 px-16 lg:px-0">
                 <h1 className="w-full text-5xl py-8 pl-4 text-primary">
                   {titletwo}
                 </h1>
-                <h2 className="w-full text-xl py-8 text-gray-300">
+                <h2 className="w-full lg:text-xl text-lg py-8 text-gray-300">
                   {descriptiontwo}
                 </h2>
                 <Link to={hreftwo}>
@@ -110,11 +110,11 @@ function Slider({
                 src={photothree}
                 alt={titlethree}
               />
-              <div className="absolute top-0 text-white lg:w-1/3 w-full h-full lg:pt-40 pt-32 lg:ml-32 px-16 lg:px-0">
+              <div className="absolute top-0 text-white lg:w-1/3 w-full h-full lg:pt-40 pt-28 lg:ml-32 px-16 lg:px-0">
                 <h1 className="w-full text-5xl py-8 pl-4 text-primary">
                   {titlethree}
                 </h1>
-                <h2 className="w-full text-xl py-8 text-gray-300">
+                <h2 className="w-full lg:text-xl text-lg py-8 text-gray-300">
                   {descriptionthree}
                 </h2>
                 <Link to={hrefthree}>
