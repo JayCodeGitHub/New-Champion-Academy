@@ -1,20 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
-import PageLayout from "../../Layouts/PageLayout"
-import Title from "../../components/Title/Title"
-import TitlePrimary from "../../components/Title/TitlePrimary"
-import Paragraph from "../../components/Paragraph/Paragraph"
-import PhotoTitle from "../../components/Title/PhotoTitle"
-import Header from "../../components/Header/Header"
-import Belt from "../../components/Belt/Belt"
-import Tiles from "../../components/Tiles/Tiles"
-import Photo from "../../components/Photo/Photo"
-import List from "../../components/List/List"
+import PageLayout from "../Layouts/PageLayout"
+import Title from "../components/Title/Title"
+import TitlePrimary from "../components/Title/TitlePrimary"
+import Paragraph from "../components/Paragraph/Paragraph"
+import PhotoTitle from "../components/Title/PhotoTitle"
+import Header from "../components/Header/Header"
+import Belt from "../components/Belt/Belt"
+import Tiles from "../components/Tiles/Tiles"
+import Photo from "../components/Photo/Photo"
+import List from "../components/List/List"
 
-const KorepetycjePage = ({ data }) => {
+const ObozyPage = ({ data }) => {
   return (
     <PageLayout>
-      {data.datoCmsPrivatelesson.content.map(item => {
+      {data.datoCmsCamp.content.map(item => {
         const itemKey = Object.keys(item)[0]
         console.log(item)
         switch (itemKey) {
@@ -67,7 +67,7 @@ const KorepetycjePage = ({ data }) => {
 
 export const query = graphql`
   query {
-    datoCmsPrivatelesson {
+    datoCmsCamp {
       content {
         ... on DatoCmsTitle {
           title
@@ -131,4 +131,4 @@ export const query = graphql`
   }
 `
 
-export default KorepetycjePage
+export default ObozyPage

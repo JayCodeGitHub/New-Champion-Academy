@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-
 const Header = ({ title, description, button, photo, href }) => (
   <>
     <div className="2xl:px-44 w-full h-auto text-white lg:flex lg:justify-center lg:items-center">
@@ -12,16 +11,18 @@ const Header = ({ title, description, button, photo, href }) => (
         <div className="w-full h-3/5 flex justify-center pt-8 px-14 xl:text-xl text-lg text-gray-400">
           {description}
         </div>
-        <div className="h-1/5 w-full flex justify-center items-center py-9">
-          <Link to={href}>
-            <button
-              type="submit"
-              className="rounded-xl border-2 text-primary border-primary px-8 py-4 m-0"
-            >
-              {button}
-            </button>
-          </Link>
-        </div>
+        {button.length ? (
+          <div className="h-1/5 w-full flex justify-center items-center py-9">
+            <Link to={href}>
+              <button
+                type="submit"
+                className="rounded-xl border-2 text-primary border-primary px-8 py-4 m-0"
+              >
+                {button}
+              </button>
+            </Link>
+          </div>
+        ) : null}
       </div>
       <div className="lg:w-1/2 w-full flex items-center justify-center 2xl:px-24 xl:px-12 px-4 lg:py-32 py-8">
         <img

@@ -9,6 +9,7 @@ import Header from "../../components/Header/Header"
 import Belt from "../../components/Belt/Belt"
 import Tiles from "../../components/Tiles/Tiles"
 import Photo from "../../components/Photo/Photo"
+import List from "../../components/List/List"
 
 const TreningiPage = ({ data }) => {
   return (
@@ -27,6 +28,8 @@ const TreningiPage = ({ data }) => {
             return <PhotoTitle title={item.title} photo={item.photo.url} />
           case "photo":
             return <Photo photo={item.photo.url} />
+          case "list":
+            return <List item={item.listitem} />
           case "header":
             return (
               <Header
@@ -71,6 +74,10 @@ export const query = graphql`
         }
         ... on DatoCmsParagraph {
           paragraph
+        }
+        ... on DatoCmsList {
+          list
+          listitem
         }
         ... on DatoCmsHeader {
           header

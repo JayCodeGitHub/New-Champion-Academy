@@ -40,10 +40,6 @@ const sport = [
     name: "Gimnastyka",
     href: "/Sport/Gimnastyka",
   },
-  {
-    name: "Obozy",
-    href: "/Sport/Obozy",
-  },
 ]
 const animacje = [
   {
@@ -51,7 +47,7 @@ const animacje = [
     href: "/Animacje/Chill-Room",
   },
   {
-    name: "Urodziny",
+    name: "Urodzinki Dla Dziedzka",
     href: "/Animacje/Urodziny",
   },
 ]
@@ -64,7 +60,7 @@ function Navigation() {
   return (
     <>
       <Popover className="relative bg-thirdary border-b-2 border-gray-500 h-28 pt-2">
-        <div className="max-w-full mx-auto px-4 lg:px-44 sm:px-6">
+        <div className="max-w-full mx-auto px-4 lg:px-12 sm:px-6">
           <div className="flex justify-between items-center  py-6 lg:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link to="/">
@@ -76,19 +72,33 @@ function Navigation() {
                 />
               </Link>
             </div>
-            <div className="-mr-2 -my-2 md:hidden ">
+            <div className="-mr-2 -my-2 lg:hidden ">
               <Popover.Button className="bg-thirdary rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
             </div>
-            <Popover.Group as="nav" className="hidden md:flex space-x-10">
+            <Popover.Group as="nav" className="hidden lg:flex space-x-10">
               <Link
                 to="/O-nas"
                 className="text-base font-medium text-white hover:text-primary"
                 activeClassName="text-primary"
               >
                 O nas
+              </Link>
+              <Link
+                to="/Obozy"
+                className="text-base font-medium text-white hover:text-primary"
+                activeClassName="text-primary"
+              >
+                Obozy
+              </Link>
+              <Link
+                to="/Przedszkola"
+                className="text-base font-medium text-white hover:text-primary"
+                activeClassName="text-primary"
+              >
+                Przedszkola
               </Link>
               <Popover className="relative">
                 {({ open }) => (
@@ -118,7 +128,7 @@ function Navigation() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute z-10  -ml-4 mt-3 transform px-2 w-60 max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                      <Popover.Panel className="absolute z-10  -ml-4 mt-3 transform px-2 w-72 max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                         <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                           <div className="relative grid gap-6 bg-gray-900 px-5 py-6 sm:gap-8 sm:p-8 ">
                             {edukacja.map(item => (
@@ -222,7 +232,7 @@ function Navigation() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-60 max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-72 max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                         <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                           <div className="relative grid gap-6 bg-gray-900 px-5 py-6 sm:gap-8 sm:p-8 ">
                             {animacje.map(item => (
@@ -284,18 +294,20 @@ function Navigation() {
         >
           <Popover.Panel
             focus
-            className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+            className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
           >
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-700 divide-y-2 divide-gray-50">
               <div className="pt-5 pb-6 px-5">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <img
-                      className="h-14 w-auto rounded-full"
-                      src={logo}
-                      alt="Workflow"
-                    />
-                  </div>
+                  <Link to="/">
+                    <div>
+                      <img
+                        className="h-14 w-auto rounded-full"
+                        src={logo}
+                        alt="Workflow"
+                      />
+                    </div>
+                  </Link>
                   <div className="-mr-2">
                     <Popover.Button className="bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-100 hover:text-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
                       <span className="sr-only">Close menu</span>
@@ -311,6 +323,22 @@ function Navigation() {
                       activeClassName="text-primary"
                     >
                       <span className="ml-3 text-base font-medium">O nas</span>
+                    </Link>
+                    <Link
+                      to="/Obozy"
+                      className="-m-3 p-3 flex items-center rounded-md text-white hover:bg-gray-500 hover:text-primary"
+                      activeClassName="text-primary"
+                    >
+                      <span className="ml-3 text-base font-medium">Obozy</span>
+                    </Link>
+                    <Link
+                      to="/Przedszkola"
+                      className="-m-3 p-3 flex items-center rounded-md text-white hover:bg-gray-500 hover:text-primary"
+                      activeClassName="text-primary"
+                    >
+                      <span className="ml-3 text-base font-medium">
+                        Przedszkola
+                      </span>
                     </Link>
                     <Popover className="relative">
                       {({ open }) => (

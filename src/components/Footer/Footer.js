@@ -7,7 +7,7 @@ import { AiFillYoutube } from "react-icons/ai"
 
 const Footer = () => (
   <>
-    <div className="bg-thirdary w-full h-60 lg:h-28 md:h-50 xl:px-44 lg:px-0 border-t-4 border-gray-500">
+    <div className="bg-thirdary w-full h-60 lg:h-28 md:h-50 xl:px-12 lg:px-0 border-t-4 border-gray-500">
       <div className="hidden w-full h-full lg:flex">
         <div className="w-1/4 h-full flex justify-center">
           <div className="w-1/3 h-full flex items-center justify-center">

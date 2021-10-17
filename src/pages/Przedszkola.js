@@ -1,19 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
-import PageLayout from "../../Layouts/PageLayout"
-import Title from "../../components/Title/Title"
-import TitlePrimary from "../../components/Title/TitlePrimary"
-import Paragraph from "../../components/Paragraph/Paragraph"
-import PhotoTitle from "../../components/Title/PhotoTitle"
-import Header from "../../components/Header/Header"
-import Belt from "../../components/Belt/Belt"
-import Tiles from "../../components/Tiles/Tiles"
-import Photo from "../../components/Photo/Photo"
+import PageLayout from "../Layouts/PageLayout"
+import Title from "../components/Title/Title"
+import TitlePrimary from "../components/Title/TitlePrimary"
+import Paragraph from "../components/Paragraph/Paragraph"
+import PhotoTitle from "../components/Title/PhotoTitle"
+import Header from "../components/Header/Header"
+import Belt from "../components/Belt/Belt"
+import Tiles from "../components/Tiles/Tiles"
+import Photo from "../components/Photo/Photo"
+import List from "../components/List/List"
 
-const ObozyPage = ({ data }) => {
+const PrzedszkolaPage = ({ data }) => {
   return (
     <PageLayout>
-      {data.datoCmsCamp.content.map(item => {
+      {data.datoCmsBeforeschool.content.map(item => {
         const itemKey = Object.keys(item)[0]
         console.log(item)
         switch (itemKey) {
@@ -27,6 +28,8 @@ const ObozyPage = ({ data }) => {
             return <PhotoTitle title={item.title} photo={item.photo.url} />
           case "photo":
             return <Photo photo={item.photo.url} />
+          case "list":
+            return <List item={item.listitem} />
           case "header":
             return (
               <Header
@@ -64,13 +67,17 @@ const ObozyPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    datoCmsCamp {
+    datoCmsBeforeschool {
       content {
         ... on DatoCmsTitle {
           title
         }
         ... on DatoCmsParagraph {
           paragraph
+        }
+        ... on DatoCmsList {
+          list
+          listitem
         }
         ... on DatoCmsHeader {
           header
@@ -124,4 +131,4 @@ export const query = graphql`
   }
 `
 
-export default ObozyPage
+export default PrzedszkolaPage
