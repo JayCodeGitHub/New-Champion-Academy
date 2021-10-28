@@ -7,7 +7,7 @@ import { AiFillYoutube } from "react-icons/ai"
 
 const ContactPageLayout = () => (
   <>
-    <div className="md:h-96 h-72 w-3/4 md:flex m-auto md:mt-32 mt-16">
+    <div className="md:h-96 w-3/4 md:flex m-auto md:mt-32 mt-16">
       <div className="md:h-96 h-72 md:w-1/2 w-full md:border-r-4 md:border-b-0 border-r-0 border-b-4">
         <div className="h-1/3 w-full flex justify-center items-center">
           <div className="rounded-full h-14 w-14 mr-3 text-primary border-primary">
@@ -16,7 +16,7 @@ const ContactPageLayout = () => (
           Gołaszyńska 35, Oborniki
         </div>
         <div className="h-1/3 w-full flex justify-center items-center">
-          <div className="rounded-full h-14 w-14 mr-3  text-primary border-primary">
+          <div className="rounded-full h-14 w-14 text-primary border-primary">
             <MailIcon />
           </div>
           blochacademy@gmail.com
