@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { useState, Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { ChevronDownIcon } from "@heroicons/react/solid"
@@ -61,9 +61,12 @@ function classNames(...classes) {
 }
 
 function Navigation() {
+  const [hamburger, sethamburger] = useState(false);
   return (
     <>
       <Popover className="relative bg-thirdary border-b-2 border-gray-500 h-28 pt-2">
+      {({ open }) => (
+                        <>
         <div className="max-w-full mx-auto px-4 lg:px-12 sm:px-6">
           <div className="flex justify-between items-center  py-6 lg:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -77,10 +80,10 @@ function Navigation() {
               </Link>
             </div>
             <div className="-mr-2 -my-2 lg:hidden ">
-              <Popover.Button className="bg-thirdary rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
+              <button onClick={() => sethamburger(true)} className="bg-thirdary rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
-              </Popover.Button>
+              </button>
             </div>
             <Popover.Group as="nav" className="hidden lg:flex space-x-10">
               <Link
@@ -214,7 +217,7 @@ function Navigation() {
                     <Popover.Button
                       className={classNames(
                         open ? "text-primary" : "text-white",
-                        "group bg-thirdary rounded-md inline-flex items-center text-base font-medium hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                        " group bg-thirdary rounded-md inline-flex items-center text-base font-medium hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                       )}
                     >
                       <span>Animacje</span>
@@ -287,17 +290,11 @@ function Navigation() {
           </div>
         </div>
 
-        <Transition
-          as={Fragment}
-          enter="duration-200 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel
-            focus
+        </>
+        )}
+      </Popover>
+      { hamburger ? (
+          <div 
             className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
           >
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-700 divide-y-2 divide-gray-50">
@@ -305,22 +302,25 @@ function Navigation() {
                 <div className="flex items-center justify-between">
                   <Link to="/">
                     <div>
+                      <button onClick={() => sethamburger(false)} >
+
                       <img
                         className="h-14 w-auto rounded-full"
                         src={logo}
                         alt="Workflow"
-                      />
+                        />
+                        </button>
                     </div>
                   </Link>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-100 hover:text-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
+                    <button onClick={() => sethamburger(false)} className="bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-100 trigger: click hover:text-gray-100 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
-                    </Popover.Button>
+                    </button>
                   </div>
                 </div>
                 <div className="mt-6 bg-gray-700">
-                  <nav className="grid gap-y-8 ">
+                <nav className="grid gap-y-8 ">
                     <Link
                       to="/O-nas"
                       className="-m-3 p-3 flex items-center rounded-md text-white hover:bg-gray-500 hover:text-primary"
@@ -344,6 +344,7 @@ function Navigation() {
                         Przedszkola
                       </span>
                     </Link>
+                    
                     <Popover className="relative">
                       {({ open }) => (
                         <>
@@ -521,13 +522,13 @@ function Navigation() {
                         Kontakt
                       </span>
                     </Link>
-                  </nav>
+                    </nav>
                 </div>
               </div>
             </div>
-          </Popover.Panel>
-        </Transition>
-      </Popover>
+          </div>
+          ):(null)}
+        
     </>
   )
 }
