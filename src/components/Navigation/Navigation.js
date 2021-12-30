@@ -21,6 +21,10 @@ const edukacja = [
 ]
 const sport = [
   {
+    name: "Pływanie",
+    href: "/Sport/Baby-Classes",
+  },
+  {
     name: "Karate",
     href: "/Sport/Karate",
   },
@@ -35,10 +39,6 @@ const sport = [
   {
     name: "Treningi Personalne",
     href: "/Sport/Treningi-Personalne",
-  },
-  {
-    name: "Baby Classes",
-    href: "/Sport/Baby-Classes",
   },
   {
     name: "Gimnastyka Korekcyjna",
