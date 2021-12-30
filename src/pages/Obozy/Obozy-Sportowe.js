@@ -1,19 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
-import PageLayout from "../Layouts/PageLayout"
-import ContentLayout from "../Layouts/ContentLeyuot"
+import PageLayout from "../../Layouts/PageLayout"
+import ContentLayout from "../../Layouts/ContentLeyuot"
 
-const ObozyPage = ({ data }) => {
+const ObozyPage = ({data}) => {
   return (
     <PageLayout>
-      <ContentLayout data={data.datoCmsCamp} />
+        <ContentLayout data={data.datoCmsSummercamp} />
     </PageLayout>
   )
 }
 
 export const query = graphql`
   query {
-    datoCmsCamp {
+    datoCmsSummercamp {
       content {
         ... on DatoCmsTitle {
           title
@@ -76,5 +76,6 @@ export const query = graphql`
     }
   }
 `
+
 
 export default ObozyPage
